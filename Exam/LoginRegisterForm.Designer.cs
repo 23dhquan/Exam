@@ -1,11 +1,13 @@
-﻿namespace Exam
+﻿using Guna.UI2.WinForms;
+
+namespace Exam
 {
     partial class LoginRegisterForm
     {
         private System.ComponentModel.IContainer components = null;
-        private Label lblName, lblPassword;
-        private TextBox txtName, txtPassword;
-        private Button btnLogin, btnRegister;
+        private Guna2HtmlLabel lblTitle;
+        private Guna2TextBox txtName, txtPassword;
+        private Guna2Button btnLogin, btnRegister;
 
         protected override void Dispose(bool disposing)
         {
@@ -15,55 +17,64 @@
 
         private void InitializeComponent()
         {
-            this.lblName = new Label();
-            this.txtName = new TextBox();
-            this.lblPassword = new Label();
-            this.txtPassword = new TextBox();
-            this.btnLogin = new Button();
-            this.btnRegister = new Button();
+            this.lblTitle = new Guna2HtmlLabel();
+            this.txtName = new Guna2TextBox();
+            this.txtPassword = new Guna2TextBox();
+            this.btnLogin = new Guna2Button();
+            this.btnRegister = new Guna2Button();
 
-            // lblName
-            this.lblName.Text = "Username:";
-            this.lblName.Location = new System.Drawing.Point(20, 20);
-            this.lblName.AutoSize = true;
+            // lblTitle
+            this.lblTitle.Text = "🔐 Login / Register";
+            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold);
+            this.lblTitle.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.lblTitle.AutoSize = false;
+            this.lblTitle.Size = new System.Drawing.Size(600, 60);
+            this.lblTitle.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblTitle.Location = new System.Drawing.Point(315, 80);
 
             // txtName
-            this.txtName.Location = new System.Drawing.Point(120, 17);
-            this.txtName.Width = 200;
-
-            // lblPassword
-            this.lblPassword.Text = "Password:";
-            this.lblPassword.Location = new System.Drawing.Point(20, 60);
-            this.lblPassword.AutoSize = true;
+            this.txtName.PlaceholderText = "Enter username";
+            this.txtName.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.txtName.BorderRadius = 10;
+            this.txtName.Size = new System.Drawing.Size(400, 45);
+            this.txtName.Location = new System.Drawing.Point(415, 200);
 
             // txtPassword
-            this.txtPassword.Location = new System.Drawing.Point(120, 57);
-            this.txtPassword.Width = 200;
-            this.txtPassword.PasswordChar = '*';
+            this.txtPassword.PlaceholderText = "Enter password";
+            this.txtPassword.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.txtPassword.BorderRadius = 10;
+            this.txtPassword.PasswordChar = '●';
+            this.txtPassword.Size = new System.Drawing.Size(400, 45);
+            this.txtPassword.Location = new System.Drawing.Point(415, 270);
 
             // btnLogin
             this.btnLogin.Text = "Login";
-            this.btnLogin.Location = new System.Drawing.Point(120, 100);
-            this.btnLogin.Click += new EventHandler(this.btnLogin_Click);
+            this.btnLogin.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.btnLogin.Size = new System.Drawing.Size(180, 50);
+            this.btnLogin.BorderRadius = 10;
+            this.btnLogin.FillColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnLogin.Location = new System.Drawing.Point(415, 360);
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
 
             // btnRegister
             this.btnRegister.Text = "Register";
-            this.btnRegister.Location = new System.Drawing.Point(220, 100);
-            this.btnRegister.Click += new EventHandler(this.btnRegister_Click);
+            this.btnRegister.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.btnRegister.Size = new System.Drawing.Size(180, 50);
+            this.btnRegister.BorderRadius = 10;
+            this.btnRegister.FillColor = System.Drawing.Color.MediumSlateBlue;
+            this.btnRegister.Location = new System.Drawing.Point(635, 360);
+            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
 
             // Form
-            this.ClientSize = new System.Drawing.Size(360, 150);
-            this.Controls.Add(lblName);
-            this.Controls.Add(txtName);
-            this.Controls.Add(lblPassword);
-            this.Controls.Add(txtPassword);
-            this.Controls.Add(btnLogin);
-            this.Controls.Add(btnRegister);
-            this.StartPosition = FormStartPosition.CenterScreen;
-            this.FormBorderStyle = FormBorderStyle.FixedDialog;
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
-            this.Text = "Login / Register";
+            this.ClientSize = new System.Drawing.Size(1230, 720);
+            this.Controls.Add(this.lblTitle);
+            this.Controls.Add(this.txtName);
+            this.Controls.Add(this.txtPassword);
+            this.Controls.Add(this.btnLogin);
+            this.Controls.Add(this.btnRegister);
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Login / Register ";
+            this.BackColor = System.Drawing.Color.White;
         }
     }
 }

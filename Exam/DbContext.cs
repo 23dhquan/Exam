@@ -16,10 +16,13 @@ namespace Exam.Models
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseMySql(
-                "server=localhost;port=3306;database=Exam;user=root;password=;",
-                new MySqlServerVersion(new Version(8, 0, 36))
+                "server=localhost;port=3306;database=exam;user=root;password=;",
+                new MySqlServerVersion(new Version(8, 0, 36)),
+                options => options.EnableRetryOnFailure()
             );
         }
+
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

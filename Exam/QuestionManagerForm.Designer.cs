@@ -45,6 +45,7 @@
 
             // Form
             this.ClientSize = new System.Drawing.Size(780, 300);
+
             this.Controls.Add(dgvQuestions);
             this.Controls.Add(btnAdd);
             this.Controls.Add(btnEdit);

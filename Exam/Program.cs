@@ -1,4 +1,4 @@
-namespace Exam
+﻿namespace Exam
 {
     internal static class Program
     {
@@ -13,5 +13,6 @@ namespace Exam
             ApplicationConfiguration.Initialize();
             Application.Run(new LoginRegisterForm());
         }
+
     }
 }
