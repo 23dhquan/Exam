@@ -22,9 +22,22 @@ namespace Exam
         private void LoadClasses()
         {
             dgvClasses.DataSource = _db.Classes
-                                        .Where(c => c.TeacherId == _teacher.Id)
-                                        .Select(c => new { c.Id, c.Name, c.Code, c.Description })
-                                        .ToList();
+                .Where(c => c.TeacherId == _teacher.Id)
+                .Select(c => new { c.Id, c.Name, c.Code, c.Description })
+                .ToList();
+
+            // Ẩn cột ID
+            if (dgvClasses.Columns["Id"] != null)
+                dgvClasses.Columns["Id"].Visible = false;
+        }
+        private void dgvClasses_CellDoubleClick(object? sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                int classId = (int)dgvClasses.Rows[e.RowIndex].Cells["Id"].Value;
+                var detailForm = new ClassDetailTeacherForm(classId);
+                detailForm.ShowDialog();
+            }
         }
 
         private void btnAddClass_Click(object sender, EventArgs e)

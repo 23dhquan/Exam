@@ -14,47 +14,82 @@
 
         private void InitializeComponent()
         {
-            this.dgvExams = new DataGridView();
-            this.btnAdd = new Button();
-            this.btnEdit = new Button();
-            this.btnDelete = new Button();
-            this.btnActivate = new Button();
+            dgvExams = new DataGridView();
+            btnAdd = new Button();
+            btnEdit = new Button();
+            btnDelete = new Button();
+            btnActivate = new Button();
 
+            SuspendLayout();
+
+            // 
             // dgvExams
-            this.dgvExams.Location = new System.Drawing.Point(20, 20);
-            this.dgvExams.Size = new System.Drawing.Size(600, 250);
-            this.dgvExams.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            this.dgvExams.MultiSelect = false;
+            // 
+            dgvExams.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgvExams.Location = new System.Drawing.Point(40, 40);
+            dgvExams.Size = new System.Drawing.Size(850, 600);
+            dgvExams.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvExams.MultiSelect = false;
+            dgvExams.ReadOnly = true;
+            dgvExams.RowHeadersVisible = false;
+            dgvExams.AllowUserToAddRows = false;
+            dgvExams.AllowUserToDeleteRows = false;
 
-            // btnAdd
-            this.btnAdd.Text = "Add Exam";
-            this.btnAdd.Location = new System.Drawing.Point(650, 20);
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // Buttons
+            // 
+            int btnWidth = 250;
+            int btnHeight = 50;
+            int btnX = 920;
+            int spacing = 20;
+            System.Drawing.Font btnFont = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
 
-            // btnEdit
-            this.btnEdit.Text = "Edit Exam";
-            this.btnEdit.Location = new System.Drawing.Point(650, 60);
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            btnAdd.Text = "➕ Add Exam";
+            btnAdd.Font = btnFont;
+            btnAdd.Size = new System.Drawing.Size(btnWidth, btnHeight);
+            btnAdd.Location = new System.Drawing.Point(btnX, 60);
+            btnAdd.BackColor = System.Drawing.Color.LightGreen;
+            btnAdd.FlatStyle = FlatStyle.Flat;
+            btnAdd.Click += btnAdd_Click;
 
-            // btnDelete
-            this.btnDelete.Text = "Delete Exam";
-            this.btnDelete.Location = new System.Drawing.Point(650, 100);
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            btnEdit.Text = "✏️ Edit Exam";
+            btnEdit.Font = btnFont;
+            btnEdit.Size = new System.Drawing.Size(btnWidth, btnHeight);
+            btnEdit.Location = new System.Drawing.Point(btnX, 60 + (btnHeight + spacing) * 1);
+            btnEdit.BackColor = System.Drawing.Color.LightSkyBlue;
+            btnEdit.FlatStyle = FlatStyle.Flat;
+            btnEdit.Click += btnEdit_Click;
 
-            // btnActivate
-            this.btnActivate.Text = "Activate/Deactivate";
-            this.btnActivate.Location = new System.Drawing.Point(650, 140);
-            this.btnActivate.Click += new System.EventHandler(this.btnActivate_Click);
+            btnDelete.Text = "🗑️ Delete Exam";
+            btnDelete.Font = btnFont;
+            btnDelete.Size = new System.Drawing.Size(btnWidth, btnHeight);
+            btnDelete.Location = new System.Drawing.Point(btnX, 60 + (btnHeight + spacing) * 2);
+            btnDelete.BackColor = System.Drawing.Color.LightCoral;
+            btnDelete.FlatStyle = FlatStyle.Flat;
+            btnDelete.Click += btnDelete_Click;
 
-            // Form
-            this.ClientSize = new System.Drawing.Size(800, 300);
-            this.Controls.Add(this.dgvExams);
-            this.Controls.Add(this.btnAdd);
-            this.Controls.Add(this.btnEdit);
-            this.Controls.Add(this.btnDelete);
-            this.Controls.Add(this.btnActivate);
-            this.StartPosition = FormStartPosition.CenterScreen;
-            this.Text = "Manage Exams";
+            btnActivate.Text = "⚙️ Activate / Deactivate";
+            btnActivate.Font = btnFont;
+            btnActivate.Size = new System.Drawing.Size(btnWidth, btnHeight);
+            btnActivate.Location = new System.Drawing.Point(btnX, 60 + (btnHeight + spacing) * 3);
+            btnActivate.BackColor = System.Drawing.Color.Khaki;
+            btnActivate.FlatStyle = FlatStyle.Flat;
+            btnActivate.Click += btnActivate_Click;
+
+            // 
+            // TeacherExamForm
+            // 
+            AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size(1230, 720);
+            Controls.Add(dgvExams);
+            Controls.Add(btnAdd);
+            Controls.Add(btnEdit);
+            Controls.Add(btnDelete);
+            Controls.Add(btnActivate);
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "📚 Manage Exams";
+            ResumeLayout(false);
         }
     }
 }

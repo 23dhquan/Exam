@@ -1,80 +1,159 @@
-﻿namespace Exam.Forms
+﻿using System;
+using System.Drawing;
+using System.Windows.Forms;
+
+namespace Exam.Forms
 {
     partial class ExamPopupForm
     {
         private System.ComponentModel.IContainer components = null;
 
-        private System.Windows.Forms.TextBox txtTitle;
-        private System.Windows.Forms.TextBox txtDescription;
-        private System.Windows.Forms.NumericUpDown numDuration;
-        private System.Windows.Forms.ComboBox cbClass;
-        private System.Windows.Forms.Button btnSave;
+        private Label lblTitle;
+        private Label lblDescription;
+        private Label lblDuration;
+        private Label lblClass;
+
+        private TextBox txtTitle;
+        private TextBox txtDescription;
+        private NumericUpDown numDuration;
+        private ComboBox cbClass;
+        private Button btnSave;
 
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
-            {
                 components.Dispose();
-            }
             base.Dispose(disposing);
         }
 
         private void InitializeComponent()
         {
-            this.txtTitle = new System.Windows.Forms.TextBox();
-            this.txtDescription = new System.Windows.Forms.TextBox();
-            this.numDuration = new System.Windows.Forms.NumericUpDown();
-            this.cbClass = new System.Windows.Forms.ComboBox();
-            this.btnSave = new System.Windows.Forms.Button();
-
-            ((System.ComponentModel.ISupportInitialize)(this.numDuration)).BeginInit();
-            this.SuspendLayout();
+            lblTitle = new Label();
+            lblDescription = new Label();
+            lblDuration = new Label();
+            lblClass = new Label();
+            txtTitle = new TextBox();
+            txtDescription = new TextBox();
+            numDuration = new NumericUpDown();
+            cbClass = new ComboBox();
+            btnSave = new Button();
+            ((System.ComponentModel.ISupportInitialize)numDuration).BeginInit();
+            SuspendLayout();
+            // 
+            // lblTitle
+            // 
+            lblTitle.AutoSize = true;
+            lblTitle.Font = new Font("Segoe UI", 10F);
+            lblTitle.Location = new Point(40, 32);
+            lblTitle.Name = "lblTitle";
+            lblTitle.Size = new Size(92, 23);
+            lblTitle.TabIndex = 0;
+            lblTitle.Text = "Exam Title:";
+            // 
+            // lblDescription
+            // 
+            lblDescription.AutoSize = true;
+            lblDescription.Font = new Font("Segoe UI", 10F);
+            lblDescription.Location = new Point(40, 72);
+            lblDescription.Name = "lblDescription";
+            lblDescription.Size = new Size(100, 23);
+            lblDescription.TabIndex = 1;
+            lblDescription.Text = "Description:";
+            // 
+            // lblDuration
+            // 
+            lblDuration.AutoSize = true;
+            lblDuration.Font = new Font("Segoe UI", 10F);
+            lblDuration.Location = new Point(40, 170);
+            lblDuration.Name = "lblDuration";
+            lblDuration.Size = new Size(157, 23);
+            lblDuration.TabIndex = 2;
+            lblDuration.Text = "Duration (minutes):";
+            // 
+            // lblClass
+            // 
+            lblClass.AutoSize = true;
+            lblClass.Font = new Font("Segoe UI", 10F);
+            lblClass.Location = new Point(40, 210);
+            lblClass.Name = "lblClass";
+            lblClass.Size = new Size(52, 23);
+            lblClass.TabIndex = 3;
+            lblClass.Text = "Class:";
             // 
             // txtTitle
             // 
-            this.txtTitle.Location = new System.Drawing.Point(30, 30);
-            this.txtTitle.Name = "txtTitle";
-            this.txtTitle.Size = new System.Drawing.Size(300, 23);
+            txtTitle.Font = new Font("Segoe UI", 10F);
+            txtTitle.Location = new Point(198, 29);
+            txtTitle.Name = "txtTitle";
+            txtTitle.Size = new Size(300, 30);
+            txtTitle.TabIndex = 4;
             // 
             // txtDescription
             // 
-            this.txtDescription.Location = new System.Drawing.Point(30, 70);
-            this.txtDescription.Multiline = true;
-            this.txtDescription.Size = new System.Drawing.Size(300, 80);
+            txtDescription.Font = new Font("Segoe UI", 10F);
+            txtDescription.Location = new Point(198, 69);
+            txtDescription.Multiline = true;
+            txtDescription.Name = "txtDescription";
+            txtDescription.Size = new Size(300, 80);
+            txtDescription.TabIndex = 5;
             // 
             // numDuration
             // 
-            this.numDuration.Location = new System.Drawing.Point(30, 170);
-            this.numDuration.Maximum = 300;
-            this.numDuration.Minimum = 1;
-            this.numDuration.Value = 60;
+            numDuration.Font = new Font("Segoe UI", 10F);
+            numDuration.Location = new Point(198, 167);
+            numDuration.Maximum = new decimal(new int[] { 300, 0, 0, 0 });
+            numDuration.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            numDuration.Name = "numDuration";
+            numDuration.Size = new Size(120, 30);
+            numDuration.TabIndex = 6;
+            numDuration.Value = new decimal(new int[] { 60, 0, 0, 0 });
             // 
             // cbClass
             // 
-            this.cbClass.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbClass.Location = new System.Drawing.Point(30, 210);
-            this.cbClass.Size = new System.Drawing.Size(300, 23);
+            cbClass.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbClass.Font = new Font("Segoe UI", 10F);
+            cbClass.Location = new Point(198, 207);
+            cbClass.Name = "cbClass";
+            cbClass.Size = new Size(300, 31);
+            cbClass.TabIndex = 7;
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(30, 260);
-            this.btnSave.Text = "Save";
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            btnSave.BackColor = Color.FromArgb(94, 148, 255);
+            btnSave.FlatAppearance.BorderSize = 0;
+            btnSave.FlatStyle = FlatStyle.Flat;
+            btnSave.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnSave.ForeColor = Color.White;
+            btnSave.Location = new Point(198, 259);
+            btnSave.Name = "btnSave";
+            btnSave.Size = new Size(140, 40);
+            btnSave.TabIndex = 8;
+            btnSave.Text = "💾 Save Exam";
+            btnSave.UseVisualStyleBackColor = false;
+            btnSave.Click += btnSave_Click;
             // 
             // ExamPopupForm
             // 
-            this.ClientSize = new System.Drawing.Size(400, 320);
-            this.Controls.Add(this.txtTitle);
-            this.Controls.Add(this.txtDescription);
-            this.Controls.Add(this.numDuration);
-            this.Controls.Add(this.cbClass);
-            this.Controls.Add(this.btnSave);
-            this.Name = "ExamPopupForm";
-            this.Text = "Exam Form";
-
-            ((System.ComponentModel.ISupportInitialize)(this.numDuration)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            BackColor = Color.White;
+            ClientSize = new Size(540, 330);
+            Controls.Add(lblTitle);
+            Controls.Add(lblDescription);
+            Controls.Add(lblDuration);
+            Controls.Add(lblClass);
+            Controls.Add(txtTitle);
+            Controls.Add(txtDescription);
+            Controls.Add(numDuration);
+            Controls.Add(cbClass);
+            Controls.Add(btnSave);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
+            MaximizeBox = false;
+            MinimizeBox = false;
+            Name = "ExamPopupForm";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Exam Form";
+            ((System.ComponentModel.ISupportInitialize)numDuration).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
     }
 }
